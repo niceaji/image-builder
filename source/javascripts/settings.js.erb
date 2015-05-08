@@ -1,0 +1,70 @@
+var MEME_SETTINGS = {
+  creditText: '출처:', // Default "credits" text.
+  creditSize: 12, // Font size for credit text.
+  downloadName: 'package', // The name of the downloaded image file (will have a ".png" extension added).
+  fontColor: 'white', // Universal font color.
+
+  // Universal font family for texts:
+  // Note that you'll need to included quoted font names as you would in CSS, ie: '"Knockout 28 B"'.
+  fontFamily: 'NanumGothic',
+  // Font family options: set to empty array to disable font selector.
+  // These options may also be formatted as {text:'Knockout', value:'"Knockout 28 B"'}.
+  fontFamilyOpts: ['NanumGothic','Malgun Gothic', 'DAUM_SDGothicNeo1', 'Arial', 'Helvetica Neue', 'Comic Sans MS'],
+
+  canvasSize: '600x600',
+  canvasSizeOpts: [
+    {text: '600 x 600', value: '600x600'},
+    {text: '700 x 500', value: '700x500'},
+    {text: '600 x 500', value: '600x500'}
+  ],
+
+  // Font size of main headline:
+  fontSize: 24,
+  // Font size options: set to empty array to disable font-size selector.
+  fontSizeOpts: [
+    {text: 'Small text', value: 14},
+    {text: 'Medium text', value: 24},
+    {text: 'Large text', value: 36}
+  ],
+
+  headlineText: '제목을 적어주세요', // Default headline text.
+  height: 378, // Canvas rendering height.
+  imageScale: 1, // Background image scale.
+  imageSrc: '', // Default background image path. MUST reside on host domain, or use base64 data.
+  overlayAlpha: 0.5, // Opacity of image overlay.
+
+  // Image overlay color, or blank ('') for no overlay:
+  overlayColor: '#000',
+  // Overlay color options: set to empty array to disable overlay options selector.
+  overlayColorOpts: ['#000', '#777', '#2980b9', '#698ca2', '#b8a79d', '#00b8d4', '#45cd9f', '#b679f8','#e360a7', '#e57169'],
+  paddingRatio: 0.05, // Percentage of canvas width to use as edge padding.
+
+  // Text alignment: valid settings are "left", "center", and "right".
+  textAlign: 'left',
+  // Text alignment options: set to empty array to disable alignment picker.
+  textAlignOpts: [
+    {text: '왼쪽', value: 'left'},
+    {text: '가운데', value: 'center'},
+    {text: '오른쪽', value: 'right'}
+  ],
+
+  textShadow: false, // Text shadow toggle.
+  textShadowEdit: true, // Toggles text shadow control within the editor.
+  watermarkAlpha: 1, // Opacity of watermark image.
+  watermarkMaxWidthRatio: 0.25, // Maximum allowed width of watermark (percentage of total canvas width).
+
+  // Path to the watermark image source, or blank for no watermark:
+  // Alternatively, use '<%= asset_data_uri("issue_default.png") %>' to populate the watermark with base64 data, avoiding Cross-Origin issues.
+  watermarkSrc: (localStorage && localStorage.getItem('meme_watermark')) || '<%= image_path("issue_default.png") %>',
+
+  // Watermark image options: set to empty array to disable watermark picker.
+  // NOTE: only populate the "data" attributes with base64 data when concerned about Cross-Origin requests...
+  // Otherwise, just leave "data" attributes blank and allow images to load from your server.
+  watermarkOpts: [
+    {text: '기본', value: '<%= image_path("issue_default.png") %>', data: '<%= asset_data_uri("issue_default.png") %>'},
+    {text: '화이트', value: '<%= image_path("issue_white.png") %>', data: ''}
+  ],
+
+  width: 600,
+  height: 600 // Canvas rendering width.
+};
